@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def homepage
+    @users = User.where({})
+    render({ :template => "user_templates/all_users" })
+  end
+  
   def index
     matching_users = User.all
     @users = matching_users.order(:created_at)
