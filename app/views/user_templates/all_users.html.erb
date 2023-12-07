@@ -9,6 +9,8 @@
 
 <hr>
 
+
+
 <table border="1">
   <tr>
     <th>
@@ -19,7 +21,9 @@
       Username
     </th>
 
-    <th></th>
+    <th>
+      
+    </th></th>
   </tr>
 
   <% @users.each do |user| %>
@@ -27,11 +31,10 @@
     <td>
       <%= user.id %>
     </td>
-
     <td>
       <%= user.username %>
     </td>
-
+   
     <td>
       <a href="/users/<%= user.username %>">Show details</a>
     </td>

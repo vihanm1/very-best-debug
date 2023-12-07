@@ -14,10 +14,13 @@ class UsersController < ApplicationController
   
   def show
     username = params.fetch("username")
-    matching_users = User.where({ :username => username })
-    @user = matching_users.first
-
-    render({ :template => "user_templates/user_details" })
+    @user = User.where({ :username => username }).at(0)
+    
+    if @user
+      render({ :template => "user_templates/user_details" })
+    else
+      # Handle the case where the user is not found
+    end
   end
   
   def create
